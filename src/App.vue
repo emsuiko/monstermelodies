@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <MonsterMelodies msg="Welcome to MonsterMelodies"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import MonsterMelodies from './components/MonsterMelodies.vue'
-
 export default {
   name: 'app',
   components: {
-    MonsterMelodies
   }
 }
 </script>
