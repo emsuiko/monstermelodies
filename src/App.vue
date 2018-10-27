@@ -1,13 +1,19 @@
 <template>
   <div id="app">
+    <navigation/>
     <router-view/>
+    <mome-footer/>
   </div>
 </template>
 
 <script>
+import Navigation from "./components/Navigation.vue";
+import MomeFooter from "./components/Footer.vue";
 export default {
   name: 'app',
   components: {
+    Navigation,
+    MomeFooter
   }
 }
 </script>
