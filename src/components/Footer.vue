@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style scoped lang="sass">
-img
-    height: 7rem
+footer
+    a
+        text-decoration: none
+        padding: 1rem
 </style>

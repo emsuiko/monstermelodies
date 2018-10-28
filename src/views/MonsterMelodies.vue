@@ -3,7 +3,7 @@
     <h1>MonsterMelodies</h1>
     <img alt="melodia" src="./../assets/melodia.png">
     <div>
-      <router-link to="/start" class="btn">Start</router-link>
+      <router-link to="/game" class="btn">Start</router-link>
     </div>
   </div>
 </template>

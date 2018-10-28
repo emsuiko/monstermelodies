@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-const Start = () => import("./views/Start");
+const Game = () => import("./views/Game");
 const Home = () => import("./views/MonsterMelodies");
+const Win = () => import("./views/Win");
+const End = () => import("./views/End");
 
 Vue.use(Router);
 
@@ -14,9 +16,19 @@ export default new Router({
             component: Home
         },
         {
-            path: "/start",
-            name: "start",
-            component: Start
+            path: "/game",
+            name: "game",
+            component: Game
+        },
+        {
+            path: "/win",
+            name: "win",
+            component: Win
+        },
+        {
+            path: "/end",
+            name: "end",
+            component: End
         }
     ]
 });

@@ -7,12 +7,15 @@
 
 <script>
 export default {
-  name: 'Navigation',
-  props: {
-  }
+    name: 'Navigation',
+    props: {
+    }
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="sass">
+nav
+    a
+        text-decoration: none
+        padding: 1rem
 </style>
