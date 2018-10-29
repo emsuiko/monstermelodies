@@ -20,7 +20,8 @@ export default {
 
 <style scoped lang="sass">
 footer
-    a
-        text-decoration: none
-        padding: 1rem
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    @media screen and (max-width: 450px)
+        grid-template-columns: 1fr
 </style>

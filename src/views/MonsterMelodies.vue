@@ -1,11 +1,9 @@
-<template>
-  <div>
-    <h1>MonsterMelodies</h1>
-    <img alt="melodia" src="./../assets/melodia.png">
-    <div>
-      <router-link to="/game" class="btn">Start</router-link>
-    </div>
-  </div>
+<template lang="pug">
+  div.general
+    h1 Monster&thinsp;Melodies
+    img(alt="melodia" src="./../assets/melodia.png")
+    div
+      router-link(to="/game" class="btn") Start
 </template>
 
 <script>
@@ -14,8 +12,8 @@ export default {
 }
 </script>
 
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
+<style scoped lang="sass">
+img
+  max-width: 80%;
+  height: auto;
 </style>

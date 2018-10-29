@@ -1,7 +1,7 @@
-<template>
-    <nav class="nav">
-        <router-link to="/">MoMe</router-link>
-        <router-link to="/start">Start</router-link>
+<template lang="pug">
+    nav.nav
+        router-link(to="/") MoMe
+        router-link(to="/start") Start
     </nav>
 </template>
 
@@ -15,7 +15,13 @@ export default {
 
 <style scoped lang="sass">
 nav
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    margin-bottom: 1rem
+    margin-top: 20px
+    padding: .5rem 0
+    background-color: #7F0000
+
     a
-        text-decoration: none
-        padding: 1rem
+        color: white
 </style>
