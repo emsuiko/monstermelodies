@@ -1,8 +1,7 @@
 <template lang="pug">
     div
         .stats
-            .lvl Level:
-                span {{this.level}}
+            LevelBar(:level="this.level")
             HealthBar(:health="this.health")
         state(v-if="this.state.show" v-bind:success="this.state.success")
         .gamezone
@@ -22,16 +21,18 @@
 import Monster from "./../components/Monster.vue";
 import State from "./../components/State.vue";
 import HealthBar from "./../components/HealthBar.vue";
+import LevelBar from "./../components/LevelBar.vue";
 export default {
     name: "Game",
     components: {
         Monster,
         State,
-        HealthBar
+        HealthBar,
+        LevelBar
     },
     data () {
         return {
-            level: 1,
+            level: 0,
             health: 5,
             state: {
                 success: false,
