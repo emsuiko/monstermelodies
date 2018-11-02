@@ -32,6 +32,7 @@ body
     display: grid
     justify-content: center
     grid-template-rows: auto 1fr auto
+    grid-template-columns: 1fr
     min-height: 100vh;
 a
     color: #2c3e50
