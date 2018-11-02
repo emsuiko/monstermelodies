@@ -3,8 +3,7 @@
         .stats
             .lvl Level:
                 span {{this.level}}
-            .health Leben:
-                span {{this.health}}
+            HealthBar(:health="this.health")
         state(v-if="this.state.show" v-bind:success="this.state.success")
         .gamezone
             button.btn(v-on:click="getMonster" v-bind:class="monster ? 'hide' : 'show'") Finde Monster!
@@ -22,11 +21,13 @@
 <script>
 import Monster from "./../components/Monster.vue";
 import State from "./../components/State.vue";
+import HealthBar from "./../components/HealthBar.vue";
 export default {
     name: "Game",
     components: {
         Monster,
-        State
+        State,
+        HealthBar
     },
     data () {
         return {
@@ -76,7 +77,7 @@ export default {
             // get response from server
             var success = true;
             if(this.audio == 1) {
-                var success = false;
+                success = false;
             }
 
             // show result
@@ -104,6 +105,7 @@ export default {
 .stats
     display: grid
     grid-template-columns: repeat(2, 1fr)
+
 .responses
     display: grid
     label
@@ -116,4 +118,5 @@ export default {
                 border: 1px solid red
         .incipit
             border: 1px solid black
+
 </style>

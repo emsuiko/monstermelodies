@@ -17,6 +17,7 @@ export default {
 nav
     display: grid
     grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: 1fr
     margin-bottom: 1rem
     margin-top: 20px
     padding: .5rem 0
