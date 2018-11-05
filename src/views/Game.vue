@@ -10,10 +10,10 @@
             form(v-if="this.responses" @submit.prevent="submit")
                 .responses
                     label(v-for="response in this.responses" v-on:click="play(response.audio, response.id)" )
-                        input(type="radio" name="audio" value="response.id")
+                        input(type="radio" name="audio" :value="response.id")
                         .incipit
                             img(:src="response.image")
-                input.btn(type="submit" value="Vorspielen")
+                input.btn(type="submit" value="Vorspielen" :disabled="disabled")
 
 </template>
 
@@ -32,6 +32,7 @@ export default {
     },
     data () {
         return {
+            disabled: true,
             level: 0,
             health: 5,
             state: {
@@ -65,15 +66,17 @@ export default {
                 }
             ];
         },
-        play: function(sound, id) {
+        play(sound, id) {
             // var audio = new Audio(sound);
             // audio.play();
-            this.audio = id;
+            this.disabled = false
+            this.audio = id
         },
-        submit: function() {
+        submit() {
             // reset gamezone
-            this.monster = null;
-            this.responses = null;
+            this.monster = null
+            this.responses = null
+            this.disabled = true
 
             // get response from server
             var success = true;

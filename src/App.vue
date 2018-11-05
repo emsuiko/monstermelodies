@@ -41,6 +41,10 @@ a
 input, button, a
     font-family: 'Uncial Antiqua', cursive
 
+input:disabled
+    color: #AEAC99
+    border-color: #AEAC99
+
 .btn
     border: 2px solid #2F4858
     text-decoration: none
