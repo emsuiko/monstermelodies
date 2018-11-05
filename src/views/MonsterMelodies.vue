@@ -23,4 +23,10 @@ export default {
         align-self: center
     img
         justify-self: center
+        @media screen and (max-width: 450px)
+            width: 200px
+    p
+        margin: 0 2rem
+        @media screen and (max-width: 450px)
+            margin: 0 .2rem
 </style>
