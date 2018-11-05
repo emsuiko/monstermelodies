@@ -34,6 +34,7 @@ export default {
         grid-area: i
         justify-self: center
         margin: 1rem
+        border-radius: 1rem
     .info
         grid-area: m
 </style>

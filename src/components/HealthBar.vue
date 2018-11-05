@@ -24,8 +24,8 @@ export default {
 .heart
     width: 3.5rem
     height: 3.5rem
-    border: 2px solid #311B1F
-    background-color: #F1F1D4
+    border: 2px solid #494738
+    background-color: #F8F5DE
     z-index: 2
     border-radius: 50%
     grid-column-start: heart-start
@@ -33,7 +33,7 @@ export default {
     justify-self: center
     grid-row: 2
     .icon
-        background-color: #311B1F
+        background-color: #494738
         display: inline-block
         height: 1.5rem
         margin: 0 10px
@@ -44,7 +44,7 @@ export default {
 
         &:before, &:after
             content: ""
-            background-color: #311B1F
+            background-color: #494738
             border-radius: 50%
             height: 1.5rem
             position: absolute
@@ -60,7 +60,7 @@ export default {
 .bar
     height: 2rem
     margin-right: 2rem
-    border: 2px solid #311B1F
+    border: 2px solid #494738
     grid-column-start: both-start
     grid-column-end: bar-end
     grid-row: 2

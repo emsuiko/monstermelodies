@@ -24,8 +24,8 @@ export default {
 .number
     width: 3.5rem
     height: 3.5rem
-    border: 2px solid #311B1F
-    background-color: #F1F1D4
+    border: 2px solid #494738
+    background-color: #F8F5DE
     z-index: 2
     border-radius: 50%
     grid-column-start: both-start
@@ -39,7 +39,7 @@ export default {
 .bar
     height: 2rem
     margin-left: 2rem
-    border: 2px solid #311B1F
+    border: 2px solid #494738
     grid-column-start: bar-start
     grid-column-end: both-end
     grid-row: 2
@@ -48,6 +48,6 @@ export default {
         width: 100%
         height: 100%
         display: block
-        background-color: #00007c
+        background-color: #5AB7D4
         transition: width 1s
 </style>

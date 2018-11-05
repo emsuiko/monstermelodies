@@ -112,16 +112,20 @@ export default {
     grid-template-columns: 1fr
     grid-template-rows: repeat(3, 1fr)
     label
-        background-color: lightgray
+        border-radius: 1rem
         margin: 1rem 5rem
         @media screen and (max-width: 450px)
             margin: .5rem
         > input
             visibility: hidden
             position: absolute
+
             &:checked ~ .incipit
-                border: 1px solid red
+                border: 2px solid #2F4858
+                background-color: #C5D2BD
         .incipit
-            border: 1px solid black
+            background-color: #C0BDA7
+            border: 2px solid #494738
+            border-radius: 1rem
 
 </style>

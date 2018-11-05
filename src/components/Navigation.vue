@@ -21,7 +21,7 @@ nav
     margin-bottom: 1rem
     margin-top: 20px
     padding: .5rem 0
-    background-color: #7F0000
+    background-color: #BB5B3F
 
     a
         color: white
