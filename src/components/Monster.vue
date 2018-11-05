@@ -2,6 +2,8 @@
     .monster
         h2 {{ monster.name }}
         img(:src="monster.image")
+        .info
+            | Curabitur in lacinia tellus, eu.
 </template>
 
 <script>
@@ -22,7 +24,16 @@ export default {
 
 <style scoped lang="sass">
 .monster
-    width: 500px
+    display: grid
+    grid-template-columns: 2rem 1fr 2rem
+    grid-template-rows: repeat(3, auto)
+    grid-template-areas: 'h h h' '. i .' '. m .'
+    h2
+        grid-area: h
     img
-        width: 400px
+        grid-area: i
+        justify-self: center
+        margin: 1rem
+    .info
+        grid-area: m
 </style>

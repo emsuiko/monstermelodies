@@ -66,8 +66,8 @@ export default {
             ];
         },
         play: function(sound, id) {
-            var audio = new Audio(sound);
-            audio.play();
+            // var audio = new Audio(sound);
+            // audio.play();
             this.audio = id;
         },
         submit: function() {
@@ -109,9 +109,13 @@ export default {
 
 .responses
     display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: repeat(3, 1fr)
     label
         background-color: lightgray
-        margin: .5rem
+        margin: 1rem 5rem
+        @media screen and (max-width: 450px)
+            margin: .5rem
         > input
             visibility: hidden
             position: absolute
