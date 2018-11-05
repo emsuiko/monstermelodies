@@ -22,6 +22,15 @@ export default {
 footer
     display: grid
     grid-template-columns: repeat(2, 1fr)
+    grid-gap: 1rem
     @media screen and (max-width: 450px)
         grid-template-columns: 1fr
+    a
+        color: #2F4858
+        &:first-of-type
+            text-align: right
+        &:last-of-type
+            text-align: left
+        &:hover
+            color: #615F4E
 </style>
