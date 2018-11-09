@@ -62,7 +62,6 @@ $important: #9b111e
             top: 0
 .bar
     height: 2rem
-    margin-right: 2rem
     border: 2px solid #494738
     grid-column-start: both-start
     grid-column-end: bar-end

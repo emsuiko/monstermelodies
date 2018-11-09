@@ -31,6 +31,7 @@ export default {
     h2
         grid-area: h
     img
+        max-width: 200px
         grid-area: i
         justify-self: center
         margin: 1rem

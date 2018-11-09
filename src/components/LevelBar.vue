@@ -39,7 +39,6 @@ $level: #119b8e
 
 .bar
     height: 2rem
-    margin-left: 2rem
     border: 2px solid #494738
     grid-column-start: bar-start
     grid-column-end: both-end

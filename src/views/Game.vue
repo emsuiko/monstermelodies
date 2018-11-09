@@ -7,13 +7,15 @@
         .gamezone
             button.btn(v-on:click="getMonster" v-bind:class="monster ? 'hide' : 'show'") Finde Monster!
             monster(v-bind:monster="this.monster" v-if="this.monster")
-            form(v-if="this.responses" @submit.prevent="submit")
-                .responses
-                    label(v-for="response in this.responses" v-on:click="play(response.audio, response.id)" )
-                        input(type="radio" name="audio" :value="response.id")
-                        .incipit
-                            img(:src="response.image")
-                input.btn(type="submit" value="Vorspielen" :disabled="disabled")
+            .melodies(v-if="this.monster")
+                p Wähle eine der Melodien aus um {{this.monster.name}} zu besiegen! Aber Obacht! Spielst du {{this.monster.name}} die falsche Melodie vor, wird dich ein gar schreckliches Unheil ereilen!
+                form(v-if="this.responses" @submit.prevent="submit")
+                    .responses
+                        label(v-for="response in this.responses" v-on:click="play(response.audio, response.id)" )
+                            input(type="radio" name="audio" :value="response.id")
+                            .incipit
+                                img(:src="response.image")
+                        input.btn(type="submit" value="Vorspielen" :disabled="disabled")
 
 </template>
 
@@ -109,11 +111,27 @@ export default {
 .stats
     display: grid
     grid-template-columns: repeat(2, 1fr)
+    margin-bottom: 2rem
+
+.gamezone
+    display: grid
+    grid-template-areas: 'm r' 'm r' 'm r'
+    grid-template-rows: auto
+    grid-template-columns: auto auto
+    @media screen and (max-width: 600px)
+        grid-template-areas: 'm' 'r'
+        grid-template-rows: auto auto
+        grid-template-columns: auto
+    monster
+        grid-area: m
+    button
+        grid-column: 1 / 3
+        justify-self: center
 
 .responses
     display: grid
     grid-template-columns: 1fr
-    grid-template-rows: repeat(3, 1fr)
+    grid-template-rows: repeat(4, auto)
     label
         border-radius: 1rem
         margin: 1rem 5rem
