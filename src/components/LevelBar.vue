@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
+$level: #119b8e
 .level
     display: grid
     grid-template-rows: auto
@@ -48,6 +49,6 @@ export default {
         width: 100%
         height: 100%
         display: block
-        background-color: #5AB7D4
+        background-color: $level
         transition: width 1s
 </style>

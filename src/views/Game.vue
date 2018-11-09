@@ -125,10 +125,14 @@ export default {
 
             &:checked ~ .incipit
                 border: 2px solid #2F4858
-                background-color: #C5D2BD
+                background-color: #9486a2
         .incipit
-            background-color: #C0BDA7
+            background-color: #9fb9e3
             border: 2px solid #494738
             border-radius: 1rem
-
+    input[type="submit"]
+        justify-self: center
+        &:disabled
+            background-color: #07295d
+            color: #9fb9e3
 </style>

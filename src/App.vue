@@ -19,6 +19,11 @@ export default {
 </script>
 
 <style lang="sass">
+
+$primary: #0f52ba
+$secondary: #2a0d45
+$important: #9b111e
+
 body
     margin: 0
     background-color: #f8f5de
@@ -46,14 +51,16 @@ input:disabled
     border-color: #AEAC99
 
 .btn
-    border: 2px solid #2F4858
+    color: white
     text-decoration: none
     padding: .75rem
     margin: .75rem
-    background-color: #C5D2BD
+    background-color: $primary
     display: inline-block
     font-size: 1.5rem
     border-radius: 1rem
+    &:hover
+        background-color: $secondary
 
 .hide
     display: none

@@ -15,6 +15,9 @@ export default {
 </script>
 
 <style scoped lang="sass">
+$primary: #0f52ba
+$secondary: #2a0d45
+$important: #9b111e
 .health
     display: grid
     grid-template-rows: auto
@@ -33,7 +36,7 @@ export default {
     justify-self: center
     grid-row: 2
     .icon
-        background-color: #494738
+        background-color: $important
         display: inline-block
         height: 1.5rem
         margin: 0 10px
@@ -44,7 +47,7 @@ export default {
 
         &:before, &:after
             content: ""
-            background-color: #494738
+            background-color: $important
             border-radius: 50%
             height: 1.5rem
             position: absolute
