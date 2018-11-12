@@ -1,7 +1,8 @@
 <template lang="pug">
     nav.nav
         router-link(to="/") MoMe
-        router-link(to="/start") Start
+        router-link(to="/game") Start
+        router-link(to="/list") Monster
     </nav>
 </template>
 
@@ -20,7 +21,7 @@ $important: #9b111e
 
 nav
     display: grid
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(3, 1fr)
     grid-template-rows: 1fr
     grid-gap: 1rem
     margin-bottom: 1rem

@@ -10,7 +10,6 @@
 export default {
     name: 'Monster',
     props: {
-        audio: "",
         monster: {
             name: String,
             image: String
