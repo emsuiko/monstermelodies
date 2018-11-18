@@ -10,8 +10,9 @@
             .melodies(v-if="this.monster.retrieved")
                 p Wähle eine der Melodien aus um {{this.monster.name}} zu besiegen! Aber Obacht! Spielst du {{this.monster.name}} die falsche Melodie vor, wird dich ein gar schreckliches Unheil ereilen!
                 form(@submit.prevent="submit")
-                    .responses
-                        melody(v-bind:melody="response" v-for="response in this.responses")
+                    .responses(v-if="this.monster.retrieved")
+                        .response(v-for="response in this.responses")
+                            melody(v-bind:mei="response.mei_data" v-bind:number="response.number")
                         input.btn(type="submit" value="Vorspielen" :disabled="disabled")
 
 </template>
@@ -72,6 +73,14 @@ export default {
                         text: data.bible_text
                     }
                     this.monster = monster
+                    var melodies = []
+                    data.melodies.forEach((melodie, k) => {
+                        melodies[k] = {
+                            mei_data: melodie.mei_data,
+                            number: melodie.id
+                        }
+                    })
+                    this.responses = melodies
             });
         },
         play(sound, id) {
@@ -103,10 +112,15 @@ export default {
                     this.$router.push('win');
                 }
             } else {
+                this.animate = true;
+                setTimeout(() => {
+                    this.animate = false;
+                }, 500);
                 this.health -= 1;
                 if(this.health == 0){
                     this.$router.push('end');
                 }
+
             }
         }
     }
