@@ -61,7 +61,7 @@ export default {
             this.state.success = false;
             this.state.show = false;
 
-            axios.get('http://monsterapi.pythonanywhere.com/game/?format=json')
+            axios.get('https://monsterapi.pythonanywhere.com/game/?format=json')
                 .then((response) => {
                     var data = response.data
                     var monster = {
