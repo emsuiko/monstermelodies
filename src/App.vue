@@ -63,4 +63,7 @@ input:disabled
 
 .hide
     display: none
+
+div#midiPlayer_div
+    display: none
 </style>
