@@ -31,7 +31,7 @@ body
     box-shadow: inset 0 0 75px rgba(255,210,0,0.3), inset 0 0 20px rgba(255,210,0,0.4), inset 0 0 30px rgba(220,120,0,0.8)
     min-height: 100vh
 #app
-    font-family: 'Uncial Antiqua', cursive
+    font-family: 'Almendra', cursive
     text-align: center
     color: #2c3e50
     display: grid
@@ -43,7 +43,7 @@ a
     text-decoration: none
 
 input, button, a
-    font-family: 'Uncial Antiqua', cursive
+    font-family: 'Almendra', cursive
 
 input:disabled
     color: #AEAC99
