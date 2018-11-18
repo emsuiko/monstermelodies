@@ -5,32 +5,34 @@
             HealthBar(:health="this.health")
         state(v-if="this.state.show" v-bind:success="this.state.success")
         .gamezone
-            button.btn(v-on:click="getMonster" v-bind:class="monster ? 'hide' : 'show'") Finde Monster!
-            monster(v-bind:monster="this.monster" v-if="this.monster")
-            .melodies(v-if="this.monster")
+            button.btn(v-on:click="getMonster" v-bind:class="monster.retrieved ? 'hide' : 'show'") Finde Monster!
+            monster(v-bind:monster="this.monster" v-if="this.monster.retrieved")
+            .melodies(v-if="this.monster.retrieved")
                 p Wähle eine der Melodien aus um {{this.monster.name}} zu besiegen! Aber Obacht! Spielst du {{this.monster.name}} die falsche Melodie vor, wird dich ein gar schreckliches Unheil ereilen!
-                form(v-if="this.responses" @submit.prevent="submit")
+                form(@submit.prevent="submit")
                     .responses
-                        label(v-for="response in this.responses" v-on:click="play(response.audio, response.id)" )
-                            input(type="radio" name="audio" :value="response.id")
-                            .incipit
-                                img(:src="response.image")
+                        melody(v-bind:melody="response" v-for="response in this.responses")
                         input.btn(type="submit" value="Vorspielen" :disabled="disabled")
 
 </template>
 
 <script>
+const axios = require('axios');
+
 import Monster from "./../components/Monster.vue";
 import State from "./../components/State.vue";
 import HealthBar from "./../components/HealthBar.vue";
 import LevelBar from "./../components/LevelBar.vue";
+import Melody from "./../components/Melody.vue";
+
 export default {
     name: "Game",
     components: {
         Monster,
         State,
         HealthBar,
-        LevelBar
+        LevelBar,
+        Melody
     },
     data () {
         return {
@@ -42,31 +44,35 @@ export default {
                 show: false,
             },
             audio: null,
-            monster: null,
-            responses: null
+            monster: {
+                retrieved: false,
+                id: Number,
+                name: String,
+                description: String,
+                image: String,
+                text: String
+            },
+            responses: []
         }
     },
     methods: {
-        getMonster: function () {
+        getMonster() {
             this.state.success = false;
             this.state.show = false;
 
-            this.monster = {
-                name: "Hilda",
-                image: "/melodia.png",
-            };
-            this.responses = [
-                {
-                    id: 1,
-                    image: "/verovio_incipits.svg",
-                    audio: "/audio1.mp3"
-                },
-                {
-                    id: 2,
-                    image: "/verovio_incipits.svg",
-                    audio: "/audio2.mp3"
-                }
-            ];
+            axios.get('http://monsterapi.pythonanywhere.com/game/?format=json')
+                .then((response) => {
+                    var data = response.data
+                    var monster = {
+                        retrieved: true,
+                        id: data.id,
+                        name: data.name,
+                        description: data.description,
+                        image: data.picture_filename,
+                        text: data.bible_text
+                    }
+                    this.monster = monster
+            });
         },
         play(sound, id) {
             // var audio = new Audio(sound);
@@ -93,7 +99,7 @@ export default {
             // update state and redirect if necessary
             if(success) {
                 this.level += 1;
-                if(this.level == 5) {
+                if(this.level == 3) {
                     this.$router.push('win');
                 }
             } else {

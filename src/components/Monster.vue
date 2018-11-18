@@ -3,7 +3,10 @@
         h2 {{ monster.name }}
         img(:src="monster.image")
         .info
-            | Curabitur in lacinia tellus, eu.
+            p
+                | {{ monster.description }}
+            p
+                | {{ monster.text }}
 </template>
 
 <script>
@@ -11,8 +14,11 @@ export default {
     name: 'Monster',
     props: {
         monster: {
+            id: Number,
             name: String,
-            image: String
+            description: String,
+            image: String,
+            text: String
         },
     },
     methods : {
