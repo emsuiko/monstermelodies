@@ -1,5 +1,5 @@
 <template lang="pug">
-    div
+    .game
         .stats
             LevelBar(:level="this.level")
             HealthBar(:health="this.health")
@@ -136,13 +136,9 @@ export default {
 
 .gamezone
     display: grid
-    grid-template-areas: 'm r' 'm r' 'm r'
+    grid-template-areas: 'm' 'r'
     grid-template-rows: auto
-    grid-template-columns: auto auto
-    @media screen and (max-width: 600px)
-        grid-template-areas: 'm' 'r'
-        grid-template-rows: auto auto
-        grid-template-columns: auto
+    grid-template-columns: auto
     monster
         grid-area: m
     button

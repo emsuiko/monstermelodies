@@ -36,8 +36,16 @@ body
     color: #2c3e50
     display: grid
     grid-template-rows: auto 1fr auto
-    grid-template-columns: 1fr
-    min-height: 100vh;
+    grid-template-columns: auto minmax(200px, 1040px) auto
+    grid-template-areas: 'nav nav nav' '. area .' 'f f f'
+    grid-column-gap: 5rem
+
+    nav
+        grid-area: nav
+    .game
+        grid-area: area
+    footer
+        grid-area: f
 a
     color: #2c3e50
     text-decoration: none
