@@ -19,21 +19,23 @@ export default {
         }
     },
     props: {
-        mei: String,
+        data: String,
+        clef: String,
+        keysig: String,
+        timesig: String,
         number: Number
     },
     methods: {
         play() {
-            // var audio = new Audio(this.melodie);
-            // audio.play();
-            var vrvToolkit = new verovio.toolkit();
-
-            $("#incipit-"+this.id).midiPlayer.play(this.melodie);
+            $("#incipit-"+this.id).midiPlayer.play(this.melodie)
+            this.$emit('play')
         }
     },
     mounted() {
         var vrvToolkit = new verovio.toolkit();
-        var svg = vrvToolkit.renderData(this.mei, {
+        var melodySignature = "@clef:"+this.clef+"\n\@keysig:"+this.keysig+"\n\@timesig:"+this.timesig+"\n\@data:"+this.data;
+        var svg = vrvToolkit.renderData(melodySignature, {
+            inputFormat: 'pae',
             pageHeight: 200,
             pageWidth: 1000,
             scale: 50,

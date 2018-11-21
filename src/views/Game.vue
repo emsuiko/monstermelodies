@@ -12,7 +12,7 @@
                 form(@submit.prevent="submit")
                     .responses(v-if="this.monster.retrieved")
                         .response(v-for="response in this.responses")
-                            melody(v-bind:mei="response.mei_data" v-bind:number="response.number")
+                            melody(v-bind:data="response.data" v-bind:number="response.number" v-bind:keysig="response.keysig" v-bind:timesig="response.timesig" v-bind:clef="response.clef" @play="play(response.number)" )
                         input.btn(type="submit" value="Vorspielen" :disabled="disabled")
 
 </template>
@@ -76,16 +76,17 @@ export default {
                     var melodies = []
                     data.melodies.forEach((melodie, k) => {
                         melodies[k] = {
-                            mei_data: melodie.mei_data,
+                            data: melodie.pae_data,
+                            keysig: melodie.keysig,
+                            timesig: melodie.timesig,
+                            clef: melodie.clef,
                             number: melodie.id
                         }
                     })
                     this.responses = melodies
             });
         },
-        play(sound, id) {
-            // var audio = new Audio(sound);
-            // audio.play();
+        play(id) {
             this.disabled = false
             this.audio = id
         },
