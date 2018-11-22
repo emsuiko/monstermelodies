@@ -5,12 +5,12 @@
             HealthBar(:health="this.health")
         state(v-if="this.state.show" v-bind:success="this.state.success")
         .gamezone
-            button.btn(v-on:click="getMonster" v-bind:class="monster.retrieved ? 'hide' : 'show'") Finde Monster!
-            monster(v-bind:monster="this.monster" v-if="this.monster.retrieved")
-            .melodies(v-if="this.monster.retrieved")
+            button.btn(v-on:click="getMonster" v-bind:class="retrieved ? 'hide' : 'show'") Finde Monster!
+            monster(v-bind:monster="this.monster" v-if="this.retrieved")
+            .melodies(v-if="this.retrieved")
                 p Wähle eine der Melodien aus um {{this.monster.name}} zu besiegen! Aber Obacht! Spielst du {{this.monster.name}} die falsche Melodie vor, wird dich ein gar schreckliches Unheil ereilen!
                 form(@submit.prevent="submit")
-                    .responses(v-if="this.monster.retrieved")
+                    .responses(v-if="this.retrieved")
                         .response(v-for="response in this.responses")
                             melody(v-bind:data="response.data" v-bind:number="response.number" v-bind:keysig="response.keysig" v-bind:timesig="response.timesig" v-bind:clef="response.clef" @play="play(response.number)" )
                         input.btn(type="submit" value="Vorspielen" :disabled="disabled")
@@ -45,8 +45,8 @@ export default {
                 show: false,
             },
             audio: null,
+            retrieved: false,
             monster: {
-                retrieved: false,
                 id: Number,
                 name: String,
                 description: String,
@@ -64,8 +64,8 @@ export default {
             axios.get('https://monsterapi.pythonanywhere.com/game/?format=json')
                 .then((response) => {
                     var data = response.data
+                    this.retrieved = true
                     var monster = {
-                        retrieved: true,
                         id: data.id,
                         name: data.name,
                         description: data.description,
@@ -92,15 +92,16 @@ export default {
         },
         submit() {
             // reset gamezone
-            this.monster = null
             this.responses = null
             this.disabled = true
+            this.retrieved = false
+            var success = false
 
-            // get response from server
-            var success = true;
-            if(this.audio == 1) {
-                success = false;
-            }
+            axios.get('https://monsterapi.pythonanywhere.com/checkmonster/'+this.monster.id+'/'+this.audio)
+                .then((response) => {
+                    console.log(response)
+                    success = response.data.result
+                });
 
             // show result
             this.state.success = success;
