@@ -108,7 +108,7 @@ export default {
             this.state.show = true;
 
             // update state and redirect if necessary
-            if(success) {
+            if(success == 'true') {
                 this.level += 1;
                 if(this.level == 3) {
                     this.$router.push('win');
