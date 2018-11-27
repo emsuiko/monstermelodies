@@ -41,4 +41,5 @@ export default {
         border-radius: 1rem
     .info
         grid-area: m
+        font-size: 1rem
 </style>

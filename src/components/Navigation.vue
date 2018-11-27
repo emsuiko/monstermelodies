@@ -1,7 +1,7 @@
 <template lang="pug">
     nav.nav
         router-link(to="/") MoMe
-        router-link(to="/list") Monster
+        router-link(to="/monster") Monster
     </nav>
 </template>
 

@@ -4,7 +4,7 @@ const Game = () => import("./views/Game");
 const Home = () => import("./views/MonsterMelodies");
 const Win = () => import("./views/Win");
 const End = () => import("./views/End");
-const List = () => import("./views/List");
+const MonsterList = () => import("./views/MonsterList");
 
 Vue.use(Router);
 
@@ -33,9 +33,9 @@ export default new Router({
         }
         ,
         {
-            path: "/list",
-            name: "list",
-            component: List
+            path: "/monster",
+            name: "monster",
+            component: MonsterList
         }
     ]
 });
