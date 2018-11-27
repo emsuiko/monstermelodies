@@ -2,6 +2,7 @@
     nav.nav
         router-link(to="/") MoMe
         router-link(to="/monster") Monster
+        router-link(to="/about") Über
     </nav>
 </template>
 
@@ -14,19 +15,15 @@ export default {
 </script>
 
 <style scoped lang="sass">
-$primary: #0f52ba
-$secondary: #2a0d45
-$important: #9b111e
-
 nav
     display: grid
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(3, 1fr)
     grid-template-rows: 1fr
     grid-gap: 1rem
     margin-bottom: 1rem
     margin-top: 20px
     padding: .5rem 0
-    background-color: $secondary
+    background-color: #3565a6
 
     a
         color: white

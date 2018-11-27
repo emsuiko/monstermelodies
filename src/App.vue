@@ -2,27 +2,29 @@
     <div id="app">
         <navigation/>
         <router-view/>
-        <mome-footer/>
     </div>
 </template>
 
 <script>
 import Navigation from "./components/Navigation.vue";
-import MomeFooter from "./components/Footer.vue";
 export default {
     name: 'app',
     components: {
-        Navigation,
-        MomeFooter
+        Navigation
     }
 }
 </script>
 
 <style lang="sass">
 
-$primary: #0f52ba
-$secondary: #2a0d45
-$important: #9b111e
+// #3565a6
+// #3c74a4
+// #327563
+// #76a564
+// #bebb60
+
+$primary: #327563
+$secondary: #76a564
 
 body
     margin: 0
