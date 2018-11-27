@@ -90,39 +90,39 @@ export default {
             this.disabled = false
             this.audio = id
         },
-        submit() {
+        async submit() {
             // reset gamezone
             this.responses = null
             this.disabled = true
             this.retrieved = false
             var success = false
 
-            axios.get('https://monsterapi.pythonanywhere.com/checkmonster/'+this.monster.id+'/'+this.audio)
-                .then((response) => {
-                    console.log(response)
-                    success = response.data.result
-                });
+            try {
+                const response = await axios.get('https://monsterapi.pythonanywhere.com/checkmonster/'+this.monster.id+'/'+this.audio)
 
-            // show result
-            this.state.success = success;
-            this.state.show = true;
+                // show result
+                this.state.success = response.data.result;
+                this.state.show = true;
 
-            // update state and redirect if necessary
-            if(success == 'true') {
-                this.level += 1;
-                if(this.level == 3) {
-                    this.$router.push('win');
+                // update state and redirect if necessary
+                if(this.state.success) {
+                    this.level += 1;
+                    if(this.level == 3) {
+                        this.$router.push('win');
+                    }
+                } else {
+                    this.animate = true;
+                    setTimeout(() => {
+                        this.animate = false;
+                    }, 500);
+                    this.health -= 1;
+                    if(this.health == 0){
+                        this.$router.push('end');
+                    }
+
                 }
-            } else {
-                this.animate = true;
-                setTimeout(() => {
-                    this.animate = false;
-                }, 500);
-                this.health -= 1;
-                if(this.health == 0){
-                    this.$router.push('end');
-                }
-
+            } catch (e) {
+                this.errors.push(e)
             }
         }
     }
@@ -130,10 +130,12 @@ export default {
 </script>
 
 <style scoped lang="sass">
+.game
+    padding: 0 2rem
+
 .stats
     display: grid
     grid-template-columns: repeat(2, 1fr)
-    margin-bottom: 2rem
 
 .gamezone
     display: grid

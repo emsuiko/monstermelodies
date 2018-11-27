@@ -35,8 +35,8 @@ body
     color: #2c3e50
     display: grid
     grid-template-rows: auto 1fr auto
-    grid-template-columns: auto minmax(200px, 1040px) auto
-    grid-template-areas: 'nav nav nav' '. area .' 'f f f'
+    grid-template-columns: minmax(200px, 1040px)
+    grid-template-areas: 'nav' 'area' 'f'
     grid-column-gap: 5rem
 
     nav

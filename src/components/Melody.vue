@@ -80,6 +80,7 @@ label
         background-color: #9fb9e3
         border: 2px solid #494738
         border-radius: 1rem
+        margin: 1rem
         svg
             // width: 5rem
 </style>

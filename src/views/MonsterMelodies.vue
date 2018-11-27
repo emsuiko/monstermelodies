@@ -18,7 +18,7 @@ export default {
 .general
     display: grid
     grid-template-rows: repeat(4, auto)
-    grid-template-colums: 1fr
+    grid-template-columns: auto
     h1
         align-self: center
     img

@@ -5,8 +5,6 @@
         .info
             p
                 | {{ monster.description }}
-            p
-                | {{ monster.text }}
 </template>
 
 <script>
