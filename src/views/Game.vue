@@ -12,7 +12,7 @@
                 form(@submit.prevent="submit")
                     .responses(v-if="this.retrieved")
                         .response(v-for="response in this.responses")
-                            melody(v-bind:data="response.data" v-bind:number="response.number" v-bind:keysig="response.keysig" v-bind:timesig="response.timesig" v-bind:clef="response.clef" @play="play(response.number)" )
+                            melody(v-bind:data="response.data" v-bind:number="response.number" v-bind:keysig="response.keysig" v-bind:timesig="response.timesig" v-bind:clef="response.clef" v-bind:name="response.name" @play="play(response.number)")
                         input.btn(type="submit" value="Vorspielen" :disabled="disabled")
 
 </template>
@@ -80,7 +80,8 @@ export default {
                             keysig: melodie.keysig,
                             timesig: melodie.timesig,
                             clef: melodie.clef,
-                            number: melodie.id
+                            number: melodie.id,
+                            name: melodie.work_title
                         }
                     })
                     this.responses = melodies

@@ -3,7 +3,7 @@
         input(type="radio" name="audio")
         .incipit(:id="'incipit-'+number")
             div(v-html="this.incipit" v-on:click="play()")
-            //- img(v-html="this.incipit")
+            span {{ name }}
 </template>
 
 <script>
@@ -23,7 +23,8 @@ export default {
         clef: String,
         keysig: String,
         timesig: String,
-        number: Number
+        number: Number,
+        name: String
     },
     methods: {
         play() {
@@ -65,10 +66,6 @@ export default {
 
 <style scoped lang="sass">
 label
-    border-radius: 1rem
-    margin: 1rem 5rem
-    @media screen and (max-width: 450px)
-        margin: .5rem
     > input
         visibility: hidden
         position: absolute
