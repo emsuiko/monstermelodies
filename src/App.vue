@@ -29,6 +29,7 @@ body
     background-color: #f8f5de
     background: url('/img/background.jpg')
     min-height: 100vh
+    font-size: 1.5rem
 #app
     font-family: 'Almendra', cursive
     text-align: center

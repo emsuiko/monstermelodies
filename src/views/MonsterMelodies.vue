@@ -2,8 +2,10 @@
     .general
         h1 Willkommen bei Monster&thinsp;Melodies!
         p
-            | Nunc sollicitudin luctus odio at euismod. Aliquam erat volutpat. Aliquam rhoncus egestas orci ac ultricies. Quisque mauris odio, cursus id varius ut, euismod vel dolor.
-        img(alt="melodia" src="./../assets/melodia.png")
+            | Tauche ein in die Welt der Monster und Melodien.
+            br
+            | Besiege tapferer Held Bartholomäus biblische Ungetüme mit Hilfe deiner getreuen Laute.
+        img(alt="melodia" src="./../assets/equisa.png")
         div
             router-link(to="/game" class="btn") Start
 </template>
@@ -23,8 +25,8 @@ export default {
         align-self: center
     img
         justify-self: center
-        @media screen and (max-width: 450px)
-            width: 200px
+        width: 400px
+        margin: 2rem
     p
         margin: 0 2rem
         @media screen and (max-width: 450px)
