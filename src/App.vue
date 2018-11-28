@@ -30,7 +30,7 @@ body
     margin: 0
     background-color: #f8f5de
     background: url('/img/background.jpg')
-    min-height: 100vh
+    // min-height: 100vh
     font-size: 1.5rem
 #app
     font-family: 'Almendra', cursive
@@ -41,6 +41,7 @@ body
     grid-template-columns: minmax(200px, 1040px)
     grid-template-areas: 'nav' 'area' 'f'
     grid-column-gap: 5rem
+    justify-content: center
 
     nav
         grid-area: nav
