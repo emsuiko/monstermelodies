@@ -2,8 +2,8 @@
     .game
         story(v-if="this.story")
         .stats(v-if="!this.story")
-            LevelBar(:level="this.level")
-            HealthBar(:health="this.health")
+            LevelBar(:level="this.level" :animate="animate.life")
+            HealthBar(:health="this.health" :animate="animate.health")
         state(v-if="this.state.show" v-bind:success="this.state.success")
         .gamezone
             button.btn(v-on:click="getMonster" v-bind:class="retrieved ? 'hide' : 'show'") Finde Monster!
@@ -40,6 +40,10 @@ export default {
     },
     data () {
         return {
+            animate: {
+                health: false,
+                life: false
+            },
             disabled: true,
             level: 0,
             health: 5,
@@ -112,15 +116,19 @@ export default {
 
                 // update state and redirect if necessary
                 if(this.state.success) {
+                    this.animate.life = true;
+                    setTimeout(() => {
+                        this.animate.life = false;
+                    }, 1000);
                     this.level += 1;
                     if(this.level == 3) {
                         this.$router.push('win');
                     }
                 } else {
-                    this.animate = true;
+                    this.animate.health = true;
                     setTimeout(() => {
-                        this.animate = false;
-                    }, 500);
+                        this.animate.health = false;
+                    }, 1000);
                     this.health -= 1;
                     if(this.health == 0){
                         this.$router.push('end');

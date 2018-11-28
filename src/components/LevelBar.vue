@@ -3,14 +3,14 @@
     .title Level
     .bar
         span(:style="{ width: level*33 + '%' }")
-    .number
+    .number(:class="{animate: animate}")
         .icon {{this.level}}
 </template>
 
 <script>
 export default {
     name: "LevelBar",
-    props: ['level'],
+    props: ['level', 'animate'],
 }
 </script>
 
@@ -36,6 +36,15 @@ $level: #119b8e
     .icon
         line-height: 3.3rem
         font-size: 3rem
+
+@keyframes animate
+    0%, 100%
+        transform: scale(1)
+    50%
+        transform: scale(1.5)
+
+.animate
+    animation: animate 1s infinite
 
 .bar
     height: 2rem

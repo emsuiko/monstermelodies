@@ -1,7 +1,7 @@
 <template lang="pug">
 .health
     .title Leben
-    .heart
+    .heart(:class="{animate: animate}")
         .icon
     .bar
         span(:style="{ width: health*20 + '%' }")
@@ -10,7 +10,7 @@
 <script>
 export default {
     name: "HealthBar",
-    props: ['health'],
+    props: ['health', 'animate']
 }
 </script>
 
@@ -18,6 +18,16 @@ export default {
 $primary: #0f52ba
 $secondary: #2a0d45
 $important: #9b111e
+
+@keyframes animate
+    0%, 100%
+        transform: scale(1)
+    50%
+        transform: scale(1.5)
+
+.animate
+    animation: animate 1s infinite
+
 .health
     display: grid
     grid-template-rows: auto
