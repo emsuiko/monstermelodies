@@ -28,7 +28,7 @@ $important: #9b111e
     width: 3.5rem
     height: 3.5rem
     border: 2px solid #494738
-    background-color: #F8F5DE
+    background-color: #ffffff
     z-index: 2
     border-radius: 50%
     grid-column-start: heart-start
@@ -63,6 +63,7 @@ $important: #9b111e
 .bar
     height: 2rem
     border: 2px solid #494738
+    background-color: #ffffff
     grid-column-start: both-start
     grid-column-end: bar-end
     grid-row: 2

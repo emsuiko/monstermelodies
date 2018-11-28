@@ -26,7 +26,7 @@ $level: #119b8e
     width: 3.5rem
     height: 3.5rem
     border: 2px solid #494738
-    background-color: #F8F5DE
+    background-color: #ffffff
     z-index: 2
     border-radius: 50%
     grid-column-start: both-start
@@ -44,6 +44,7 @@ $level: #119b8e
     grid-column-end: both-end
     grid-row: 2
     align-self: center
+    background-color: #ffffff
     span
         width: 100%
         height: 100%
