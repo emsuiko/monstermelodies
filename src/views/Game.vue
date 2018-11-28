@@ -1,6 +1,7 @@
 <template lang="pug">
     .game
-        .stats
+        story(v-if="this.story")
+        .stats(v-if="!this.story")
             LevelBar(:level="this.level")
             HealthBar(:health="this.health")
         state(v-if="this.state.show" v-bind:success="this.state.success")
@@ -25,6 +26,7 @@ import State from "./../components/State.vue";
 import HealthBar from "./../components/HealthBar.vue";
 import LevelBar from "./../components/LevelBar.vue";
 import Melody from "./../components/Melody.vue";
+import Story from "./../components/Story.vue";
 
 export default {
     name: "Game",
@@ -33,7 +35,8 @@ export default {
         State,
         HealthBar,
         LevelBar,
-        Melody
+        Melody,
+        Story
     },
     data () {
         return {
@@ -46,6 +49,7 @@ export default {
             },
             audio: null,
             retrieved: false,
+            story: true,
             monster: {
                 id: Number,
                 name: String,
@@ -58,8 +62,9 @@ export default {
     },
     methods: {
         getMonster() {
-            this.state.success = false;
-            this.state.show = false;
+            this.state.success = false
+            this.state.show = false
+            this.story = false
 
             axios.get('https://monsterapi.pythonanywhere.com/game/?format=json')
                 .then((response) => {
