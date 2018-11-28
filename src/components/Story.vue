@@ -1,75 +1,47 @@
 <template lang="pug">
     .story
         h3 Monster Melodies
-
-        p.intro
-            | Diese Geschichte erzählt von einem jungen Mann.
-            | Einem bedauernswerten Jüngling, dem Ungeheuerliches widerfuhr.
-            | Sein Name: &nbsp;
-            br
-            strong Bartholomäus Gensfleisch.
-
-        img(src="./../assets/Bartholomaeus01.png")
-
-        p
-            | Er wurde im Jahr 1404 in Mainz geboren. Eine wahrhaft prächtige Stadt.
-            br
-            | Seine wohlhabenden Eltern liebten ihn sehr. Doch im Grunde hatten sie nur Augen für seinen älteren Bruder.
-            br
-            | Johannes hier, Johannes da.
-            br
-            | Johannes durfte alles. Zinnsoldaten. Laterna magica. Sogar ein kleines Schiffchen, das auf magische Weise in der Luft schweben konnte.
-            br
-            | Bartholomäus musste sich mit einer alten Leier abgeben. Opa Gensfleisch hatte sie während der Pest gespielt und dadurch überlebt.
-
-        p
-            | Aus Trotz begann Bartholomäus, sich von der Familie abzunabeln. Er begann eine Ausbildung zum Damenschneider.
-            br
-            | Ein hartes Geschäft. Und gar nicht mal so ungefährlich.
-            br
-            | Denn Bartholomäus verliebte sich unsterblich in Spundita. Sie war die Tochter des lokalen Frischkäsemagnaten.
-            br
-            | Sicherlich eine Nummer zu hoch für ihn.
-            br
-            | Aber unglaublich hübsch!
-            br
-            | Könnte er doch nur das perfekte Kleid für sie nähen ...
-
-        p
-            | Eines Tages erschienen unverhofft zwei dunkle Gestalten in seiner Schneiderstube: Ein Winzling und ein Hüne. Graue Kutten, schwarze Augenringe.
-            br
-            em Wir wissen um deinen stärksten Wunsch, &nbsp;
-            | raunte der Hüne. &nbsp;
-            em Und wenn du dir ein bisschen Mühe gibst, bist du ihm näher als du denkst!
-            br
-            | Er drückte dem verdutzten Bartholomäus ein dickes Buch in die zerstochenen Hände.
-            br
-            em Die Melodien darin wirst du gut gebrauchen können. Die Monster, denen du begegnen wird, werden durch diese Noten zur Ruhe gebracht. Jedes von ihnen hat seine eigene Weise. Doch welche es ist, das musst du herausfinden.
-            br
-            | Welche Gestalten? Welche Begegnung? Bartholomäus war so verdutzt, dass er nur noch stammeln konnte. Da funkelte ihn der Winzling an. &nbsp;
-            em Ut omnes unum sint, &nbsp;
-            | murmelte er in seinen dichten Rauschebart.
-            br
-            br
-            | Da tat sich unter Bartholomäus ein tiefschwarzes Loch auf.
-            br
-            | Er fiel. Und fiel.
-            br
-            br
-            | Und fiel.
+        div.text
+            vue-typer(
+                :text='["Diese Geschichte erzählt von einem jungen Mann.","Einem bedauernswerten Jüngling, dem Ungeheuerliches widerfuhr.","Sein Name: Bartholomäus Gensfleisch.","Er wurde im Jahr 1404 in Mainz geboren. Eine wahrhaft prächtige Stadt.","Seine wohlhabenden Eltern liebten ihn sehr. Doch im Grunde hatten sie nur Augen für seinen älteren Bruder.","Johannes hier, Johannes da.","Johannes durfte alles. Zinnsoldaten. Laterna magica. Sogar ein kleines Schiffchen, das auf magische Weise in der Luft schweben konnte.","Bartholomäus musste sich mit einer alten Leier abgeben. Opa Gensfleisch hatte sie während der Pest gespielt und dadurch überlebt.","Aus Trotz begann Bartholomäus, sich von der Familie abzunabeln. Er begann eine Ausbildung zum Damenschneider.","Ein hartes Geschäft. Und gar nicht mal so ungefährlich.","Denn Bartholomäus verliebte sich unsterblich in Spundita. Sie war die Tochter des lokalen Frischkäsemagnaten.","Sicherlich eine Nummer zu hoch für ihn.","Aber unglaublich hübsch!","Könnte er doch nur das perfekte Kleid für sie nähen ...","Eines Tages erschienen unverhofft zwei dunkle Gestalten in seiner Schneiderstube: Ein Winzling und ein Hüne. Graue Kutten, schwarze Augenringe.","Wir wissen um deinen stärksten Wunsch, raunte der Hüne. Und wenn du dir ein bisschen Mühe gibst, bist du ihm näher als du denkst!","Er drückte dem verdutzten Bartholomäus ein dickes Buch in die zerstochenen Hände.","Die Melodien darin wirst du gut gebrauchen können. Die Monster, denen du begegnen wird, werden durch diese Noten zur Ruhe gebracht. Jedes von ihnen hat seine eigene Weise. Doch welche es ist, das musst du herausfinden.","Welche Gestalten? Welche Begegnung? Bartholomäus war so verdutzt, dass er nur noch stammeln konnte. Da funkelte ihn der Winzling an. Ut omnes unum sint, murmelte er in seinen dichten Rauschebart.","Da tat sich unter Bartholomäus ein tiefschwarzes Loch auf.","Er fiel. Und fiel.","Und fiel."]'
+                :repeat='0'
+                :shuffle='false'
+                initial-action='typing'
+                :pre-type-delay='70'
+                :type-delay='70'
+                :pre-erase-delay='2000'
+                :erase-delay='250'
+                erase-style='clear'
+                :erase-on-complete='true'
+                caret-animation='blink')
+        div.img
+            img(src="./../assets/Bartholomaeus01.png")
 
 </template>
 
 <script>
+var VueTyper = require('vue-typer').VueTyper
 export default {
-
+    components: {
+        VueTyper
+    }
 }
 </script>
 
 <style lang="sass" scoped>
-img
-    float: left
-    margin-right: 1rem
-p:not(.intro)
-    text-align: left
+.story
+    display: grid
+    grid-template-areas: 'h h' 'i t'
+    grid-template-columns: auto 1fr
+
+    h3
+        grid-area: h
+
+    .img
+        grid-area: i
+
+    .text
+        grid-area: t
+        padding-top: 2rem
+        padding-left: 2rem
 </style>
