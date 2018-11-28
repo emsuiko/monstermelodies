@@ -21,7 +21,6 @@ export default {
     created: function () {
         axios.get('https://monsterapi.pythonanywhere.com/detail/monsters/')
             .then((response) => {
-                console.log(response)
                 var list = []
                 response.data.forEach((monster, k) => {
                     list[k] = {

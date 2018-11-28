@@ -39,7 +39,7 @@ export default {
             inputFormat: 'pae',
             pageHeight: 200,
             pageWidth: 1000,
-            scale: 50,
+            scale: 40,
             adjustPageHeight: true,
             noHeader: true,
             noFooter: true,
@@ -66,18 +66,20 @@ export default {
 
 <style scoped lang="sass">
 label
+    margin: 0
+    &:hover
+        cursor: pointer
     > input
         visibility: hidden
         position: absolute
 
         &:checked ~ .incipit
             border: 2px solid #2F4858
-            background-color: #9486a2
+            background-color: #bebb60
     .incipit
-        background-color: #9fb9e3
+        background-color: #ffffff
         border: 2px solid #494738
         border-radius: 1rem
-        margin: 1rem
-        svg
-            // width: 5rem
+        margin-bottom: .5rem
+        width: min-content
 </style>

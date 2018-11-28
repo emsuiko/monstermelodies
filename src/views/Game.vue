@@ -153,22 +153,9 @@ export default {
     display: grid
     grid-template-columns: 1fr
     grid-template-rows: repeat(4, auto)
-    label
-        border-radius: 1rem
-        margin: 1rem 5rem
-        @media screen and (max-width: 450px)
-            margin: .5rem
-        > input
-            visibility: hidden
-            position: absolute
-
-            &:checked ~ .incipit
-                border: 2px solid #2F4858
-                background-color: #9486a2
-        .incipit
-            background-color: #9fb9e3
-            border: 2px solid #494738
-            border-radius: 1rem
+    .response
+        display: grid
+        justify-content: center
     input[type="submit"]
         justify-self: center
         &:disabled
