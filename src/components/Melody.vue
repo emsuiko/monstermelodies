@@ -67,6 +67,8 @@ export default {
 <style scoped lang="sass">
 label
     margin: 0
+    display: grid
+    justify-content: center
     &:hover
         cursor: pointer
     > input
