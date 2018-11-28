@@ -28,7 +28,7 @@
         .team
             h2 Das Team
             .member
-                img(alt="Felix Wertschulte" src="./../assets/felix.jpg")
+                img(alt="Felix Wertschulte" src="./../assets/felix.png")
                 .info
                     strong Felix Werthschulte
                     br
@@ -49,7 +49,7 @@
 
 <script>
 export default {
-    name: 'Über',
+    name: 'About',
 }
 </script>
 
