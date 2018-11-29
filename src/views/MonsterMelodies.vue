@@ -4,7 +4,7 @@
         p
             | Tauche ein in die Welt der Monster und Melodien.
             br
-            | Besiege tapferer Held Bartholomäus biblische Ungetüme mit Hilfe deiner getreuen Laute.
+            | Besiege als tapferer Held Bartholomäus biblische Ungetüme mit Hilfe deiner getreuen Laute.
         img(alt="melodia" src="./../assets/equisa.png")
         div
             router-link(to="/game" class="btn") Start
