@@ -33,4 +33,5 @@ export default {
     height: 354px
     background: url('/img/blaues-kleid.jpg') left center
     animation: play 2s steps(8) infinite
+    border-radius: 50%
 </style>
