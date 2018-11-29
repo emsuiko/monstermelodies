@@ -3,7 +3,7 @@
         input(type="radio" name="audio")
         .incipit(:id="'incipit-'+number")
             div(v-html="this.incipit" v-on:click="play()")
-            span {{ name }}
+            span {{ name }} - {{ movement }}
 </template>
 
 <script>
@@ -24,7 +24,8 @@ export default {
         keysig: String,
         timesig: String,
         number: Number,
-        name: String
+        name: String,
+        movement: String
     },
     methods: {
         play() {

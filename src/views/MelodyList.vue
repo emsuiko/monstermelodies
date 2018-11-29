@@ -1,7 +1,7 @@
 <template lang="pug">
     div
         h1 Alle Melodien der MonsterMelodies
-        melody(v-for="melody in this.melodies" v-bind:data="melody.data" v-bind:number="melody.number" v-bind:keysig="melody.keysig" v-bind:timesig="melody.timesig" v-bind:clef="melody.clef" v-bind:name="melody.name")
+        melody(v-for="melody in this.melodies" v-bind:data="melody.data" v-bind:number="melody.number" v-bind:keysig="melody.keysig" v-bind:timesig="melody.timesig" v-bind:clef="melody.clef" v-bind:name="melody.name" v-bind:movement="melody.movement")
 </template>
 
 <script>
@@ -29,7 +29,8 @@ export default {
                             timesig: melodie.timesig,
                             clef: melodie.clef,
                             number: melodie.id,
-                            name: melodie.work_title
+                            name: melodie.work_title,
+                            movement: melodie.movement
                         }
                 });
                 this.melodies = list
