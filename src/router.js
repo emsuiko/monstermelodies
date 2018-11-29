@@ -8,6 +8,7 @@ const MonsterList = () => import("./views/MonsterList");
 const MelodyList = () => import("./views/MelodyList");
 const About = () => import("./views/About");
 const RecipesList = () => import("./views/Recipes");
+const Lists = () => import("./views/Lists");
 
 Vue.use(Router);
 
@@ -53,6 +54,11 @@ export default new Router({
             path: "/about",
             name: "about",
             component: About
+        },
+        {
+            path: "/lists",
+            name: "lists",
+            component: Lists
         }
     ]
 });
