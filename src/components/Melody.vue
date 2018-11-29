@@ -84,5 +84,5 @@ label
         border: 2px solid #494738
         border-radius: 1rem
         margin-bottom: .5rem
-        width: min-content
+        padding: 1rem
 </style>
