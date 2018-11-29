@@ -12,10 +12,11 @@
                 :pre-erase-delay='2000'
                 :erase-delay='250'
                 erase-style='clear'
-                :erase-on-complete='true'
+                :erase-on-complete='false'
                 caret-animation='blink')
         div.img
-            img(src="./../assets/Bartholomaeus01.png")
+            img.big(src="./../assets/Bartholomaeus01.png")
+            img.small(src="./../assets/Bartholomaeus02.png")
 
 </template>
 
@@ -33,12 +34,26 @@ export default {
     display: grid
     grid-template-areas: 'h h' 'i t'
     grid-template-columns: auto 1fr
+    @media screen and (max-width: 450px)
+        grid-template-areas: 'h' 'i' 't'
+        grid-template-columns: 1fr
 
     h3
         grid-area: h
 
     .img
         grid-area: i
+        display: grid
+        justify-content: center
+
+        img
+            &.big
+                @media screen and (max-width: 450px)
+                    display: none
+            &.small
+                display: none
+                @media screen and (max-width: 450px)
+                    display: block
 
     .text
         grid-area: t
