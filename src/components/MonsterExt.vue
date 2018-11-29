@@ -1,5 +1,6 @@
 <template lang="pug">
     .monster
+        h2 {{ monster.name.complete }}
         img(:src="monster.image")
         .details
             .info
@@ -16,7 +17,7 @@ export default {
     props: {
         monster: {
             id: Number,
-            name: String,
+            name: Object,
             description: String,
             image: String,
             text: String,
