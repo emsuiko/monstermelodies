@@ -1,9 +1,14 @@
 <template lang="pug">
     label
         input(type="radio" name="audio")
-        .incipit(:id="'incipit-'+number")
+        .incipit(:id="'incipit-'+melody.number")
             div(v-html="this.incipit" v-on:click="play()")
-            span {{ name }} - {{ movement }}
+            span {{ melody.name }} - {{ melody.movement }}
+            br
+            span.links(v-if="list")
+                a(:href="melody.rism" target="_blank") Link zum RISM-OPAC
+                | &nbsp;|&nbsp;
+                a(:href="melody.original" target="_blank") Link zur Notenhandschrift
 </template>
 
 <script>
@@ -19,23 +24,28 @@ export default {
         }
     },
     props: {
-        data: String,
-        clef: String,
-        keysig: String,
-        timesig: String,
-        number: Number,
-        name: String,
-        movement: String
+        list: false,
+        melody: {
+            data: String,
+            clef: String,
+            keysig: String,
+            timesig: String,
+            number: Number,
+            name: String,
+            movement: String,
+            original: String,
+            rism: String
+        }
     },
     methods: {
         play() {
-            $("#incipit-"+this.id).midiPlayer.play(this.melodie)
+            $("#incipit-"+this.melody.number).midiPlayer.play(this.melodie)
             this.$emit('play')
         }
     },
     mounted() {
         var vrvToolkit = new verovio.toolkit();
-        var melodySignature = "@clef:"+this.clef+"\n\@keysig:"+this.keysig+"\n\@timesig:"+this.timesig+"\n\@data:"+this.data;
+        var melodySignature = "@clef:"+this.melody.clef+"\n\@keysig:"+this.melody.keysig+"\n\@timesig:"+this.melody.timesig+"\n\@data:"+this.melody.data;
         var svg = vrvToolkit.renderData(melodySignature, {
             inputFormat: 'pae',
             pageHeight: 200,
@@ -52,7 +62,7 @@ export default {
         var song = 'data:audio/midi;base64,' + base64midi;
         this.melodie = song
 
-        var player = "#incipit-"+this.number
+        var player = "#incipit-"+this.melody.number
         $(player).midiPlayer({
                 color: "red",
                 // onUpdate: midiUpdate,
@@ -85,4 +95,8 @@ label
         border-radius: 1rem
         margin-bottom: .5rem
         padding: 1rem
+    .links
+        font-size: 1rem
+        a:hover
+            color: #3565a6
 </style>

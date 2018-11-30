@@ -13,7 +13,7 @@
                 form(@submit.prevent="submit")
                     .responses(v-if="this.retrieved")
                         .response(v-for="response in this.responses")
-                            melody(v-bind:data="response.data" v-bind:number="response.number" v-bind:keysig="response.keysig" v-bind:timesig="response.timesig" v-bind:clef="response.clef" v-bind:name="response.name" v-bind:movement="response.movement" @play="play(response.number)")
+                            melody(v-bind:melody="response" @play="play(response.number)")
                         input.btn(type="submit" value="Vorspielen" :disabled="disabled")
 
 </template>
@@ -94,7 +94,9 @@ export default {
                             clef: melodie.clef,
                             number: melodie.id,
                             name: melodie.work_title,
-                            movement: melodie.movement
+                            movement: melodie.movement,
+                            original: melodie.tu_da_link,
+                            rism: melodie.rism_opac_link
                         }
                     })
                     this.responses = melodies

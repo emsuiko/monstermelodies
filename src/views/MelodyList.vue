@@ -1,7 +1,7 @@
 <template lang="pug">
     div
         h1 Alle Melodien der MonsterMelodies
-        melody(v-for="melody in this.melodies" v-bind:data="melody.data" v-bind:number="melody.number" v-bind:keysig="melody.keysig" v-bind:timesig="melody.timesig" v-bind:clef="melody.clef" v-bind:name="melody.name" v-bind:movement="melody.movement")
+        melody(v-for="melody in this.melodies" v-bind:melody="melody" v-bind:list="true")
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
         }
     },
     created: function () {
-        axios.get('https://monsterapi.pythonanywhere.com/detail/melodies/')
+        axios.get('https://monsterapi.pythonanywhere.com/detail/melodies/?format=json')
             .then((response) => {
                 var list = []
                 response.data.forEach((melodie, k) => {
@@ -30,7 +30,9 @@ export default {
                             clef: melodie.clef,
                             number: melodie.id,
                             name: melodie.work_title,
-                            movement: melodie.movement
+                            movement: melodie.movement,
+                            original: melodie.tu_da_link,
+                            rism: melodie.rism_opac_link
                         }
                 });
                 this.melodies = list
@@ -40,4 +42,5 @@ export default {
 </script>
 
 <style lang="sass">
+
 </style>
