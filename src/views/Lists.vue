@@ -1,13 +1,19 @@
 <template lang="pug">
     div
         h1 Alle Daten der MonsterMelodies
-        ul
-            li
-                router-link(to="/monster") Monster
-            li
-                router-link(to="/melodies") Melodien
-            li
-                router-link(to="/recipes") Rezepte
+        .lists
+            .list
+                router-link(to="/monster")
+                    img(src="./../assets/all_monsters_thumb.png" alt="Monster")
+                    | Monster
+            .list
+                router-link(to="/melodies")
+                    img(src="./../assets/all_melodies_thumb.png" alt="Melodien")
+                    | Melodien
+            .list
+                router-link(to="/recipes")
+                    img(src="./../assets/all_recipes_thumb.png" alt="Rezepte")
+                    | Rezepte
 </template>
 
 <script>
@@ -30,8 +36,17 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-ul
-    list-style: none
+.lists
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: repeat(3, 1fr)
+    @media screen and (max-width: 450px)
+        grid-template-rows: repeat(3, 1fr)
+        grid-template-columns: 1fr
+    .list
+        margin: 1rem
+img
+    width: 200px
 a:hover
     color: #3565a6
 </style>
