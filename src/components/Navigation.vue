@@ -1,6 +1,6 @@
 <template lang="pug">
     nav.nav
-        router-link(to="/") MoMe
+        router-link(to="/") Spiel
         router-link(to="/lists") Daten
         router-link(to="/about") Über
     </nav>

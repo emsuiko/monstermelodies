@@ -6,7 +6,7 @@
             HealthBar(:health="this.health" :animate="animate.health")
         state(v-if="this.state.show" v-bind:success="this.state.success" v-bind:recipe="this.recipe" v-bind:monster="this.monster.name.forename")
         .gamezone
-            button.btn(v-on:click="getMonster" v-bind:class="retrieved ? 'hide' : 'show'") Finde Monster!
+            button.btn(v-on:click="getMonster" v-bind:class="retrieved ? 'hide' : 'show'") Attacke!
             monster(v-bind:monster="this.monster" v-if="this.retrieved")
             .melodies(v-if="this.retrieved")
                 p Wähle eine der Melodien aus um {{this.monster.name.forename}} zu besänftigen! Aber Obacht! Spielst du {{this.monster.name.forename}} die falsche Melodie vor, wird dich ein gar schreckliches Unheil ereilen!
