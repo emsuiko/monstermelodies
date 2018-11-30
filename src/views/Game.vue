@@ -14,7 +14,7 @@
                     .responses(v-if="this.retrieved")
                         .response(v-for="response in this.responses")
                             melody(v-bind:melody="response" @play="play(response.number)")
-                        input.btn(type="submit" value="Vorspielen" :disabled="disabled")
+                        input.btn(type="submit" value="Versuch dein Glück" :disabled="disabled")
 
 </template>
 
