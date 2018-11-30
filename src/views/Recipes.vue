@@ -3,7 +3,7 @@
         h1 Alle Rezepte der MonsterMelodies
         ul
             li(v-for="recipe in this.list")
-                a(:href="recipe.href") {{recipe.title}}
+                a(:href="recipe.href" target="_blank") {{recipe.title}}
 </template>
 
 <script>
