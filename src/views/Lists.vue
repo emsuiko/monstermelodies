@@ -5,15 +5,15 @@
             .list
                 router-link(to="/monster")
                     img(src="./../assets/all_monsters_thumb.png" alt="Monster")
-                    | Monster
+                    .title Monster
             .list
                 router-link(to="/melodies")
                     img(src="./../assets/all_melodies_thumb.png" alt="Melodien")
-                    | Melodien
+                    .title Melodien
             .list
                 router-link(to="/recipes")
                     img(src="./../assets/all_recipes_thumb.png" alt="Rezepte")
-                    | Rezepte
+                    .title Rezepte
 </template>
 
 <script>
