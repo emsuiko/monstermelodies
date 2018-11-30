@@ -13,7 +13,10 @@ export default {
     name: 'State',
     props: {
         success: null,
-        recipe: Object,
+        recipe: {
+            href: String,
+            title: String
+        },
         monster: String
     }
 }
