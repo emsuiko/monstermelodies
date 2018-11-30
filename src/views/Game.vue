@@ -4,7 +4,7 @@
         .stats(v-if="!this.story")
             LevelBar(:level="this.level" :animate="animate.life")
             HealthBar(:health="this.health" :animate="animate.health")
-        state(v-if="this.state.show" v-bind:success="this.state.success")
+        state(v-if="this.state.show" v-bind:success="this.state.success" v-bind:recipe="this.recipe" v-bind:monster="this.monster.name.forename")
         .gamezone
             button.btn(v-on:click="getMonster" v-bind:class="retrieved ? 'hide' : 'show'") Finde Monster!
             monster(v-bind:monster="this.monster" v-if="this.retrieved")
@@ -47,10 +47,12 @@ export default {
             disabled: true,
             level: 0,
             health: 5,
+            game_id: null,
             state: {
                 success: false,
                 show: false,
             },
+            recipe: Object,
             audio: null,
             retrieved: false,
             story: true,
@@ -74,6 +76,7 @@ export default {
                 .then((response) => {
                     var data = response.data
                     this.retrieved = true
+                    this.game_id = data.game_id
                     var monster = {
                         id: data.id,
                         name: data.name,
@@ -109,7 +112,7 @@ export default {
             var success = false
 
             try {
-                const response = await axios.get('https://monsterapi.pythonanywhere.com/checkmonster/'+this.monster.id+'/'+this.audio)
+                const response = await axios.get('https://monsterapi.pythonanywhere.com/checkgame/'+this.game_id+'/'+this.audio)
 
                 // show result
                 this.state.success = response.data.result;
@@ -127,6 +130,7 @@ export default {
                     }
                 } else {
                     this.animate.health = true;
+                    this.recipe = response.data.recipe
                     setTimeout(() => {
                         this.animate.health = false;
                     }, 1000);

@@ -1,16 +1,20 @@
 <template lang="pug">
-    h3(v-if="this.success") Yay, du hast das Monster besiegt!
-    h3(v-else) Mist, das war falsch!
+    div(v-if="this.success")
+        h3 Yay, du hast das Monster besiegt!
+    div(v-else)
+        h3 Mist, das war falsch!
+        p {{monster}} möchte dich zu &nbsp;
+            a(:href="recipe.href") {{recipe.title}}
+            | &nbsp; verarbeiten… kannst du entfliehen?
 </template>
 
 <script>
 export default {
     name: 'State',
     props: {
-        success: null
-    },
-    methods : {
-
+        success: null,
+        recipe: Object,
+        monster: String
     }
 }
 </script>
